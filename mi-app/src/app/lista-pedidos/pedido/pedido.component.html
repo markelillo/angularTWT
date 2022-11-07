@@ -1,0 +1,14 @@
+<h2>Detalle de pedido</h2>
+<div class="container">
+  <div class="row">
+    <div class="col">  id:{{ pedido.id }}
+      <div class="col">Usuario:{{ pedido.user }}</div>
+      <div class="col">Descripcion:{{ pedido.desc }}</div>
+      <div class="col"> Fecha de entrega:{{ pedido.fechaPedido | date: "MM/dd/yy"}} <!--las pipes se usan para formatear datos--></div>
+      <div *ngIf="pedido.entregado;else elseblock" class="col">
+     Entregado: SI
+    </div>
+    <ng-template #elseblock>Entregado: NO</ng-template>
+    </div>
+  </div>
+</div>
