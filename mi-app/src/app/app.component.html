@@ -1,10 +1,40 @@
-<h1>COMPONENTE APPROOT {{usuario}}, {{title}}</h1>
+<h1>COMPONENTE APPROOT {{ usuario }}, {{ title }}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- CABECERA -->
+      <app-cabecera></app-cabecera>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a routerLink="/" class="nav-link active" routerLinkActiveOptions="{exact: true}"
+          > List Pedidos</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a routerLink="/pedido" class="nav-link" routerLinkActiveOptions="{exact: true}"
+          > Detalle Pedido</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a routerLink="pedido/edit" class="nav-link" routerLinkActiveOptions="{exact: true}"> Alta Pedido</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <!-- LISTA DE PEDIDOS 
+      <app-lista-pedidos></app-lista-pedidos>-->
 
-<!--cabecera-->
-<app-cabecera></app-cabecera>
-<!--lista de pedidos-->
-<app-lista-pedidos></app-lista-pedidos>
-<!--detalle de pedidos-->
-<app-pedido></app-pedido>
-<!--alta/modiicar pedido-->
-<app-editar-pedido></app-editar-pedido>
+      <!-- DETALLE DE UN PEDIDO  
+      <app-pedido></app-pedido>-->
+
+      <!-- ALTA/MODIFICAR PEDIDO
+
+      <app-editar-pedido></app-editar-pedido> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,11 @@
-<p>editar-pedido works!</p>
+<h2>Editar Pedido</h2>
+
+
+<label >Descripcion Pedido</label>
+<input type="text"  (input)="onUpdateDescPedido($event)">
+<p>{{pedido.desc}}</p>
+
+
+<label >Descripcion Pedido ng ngModel a socia el ipt a la propiedad del atributo</label>
+<input type="text"  [(ngModel)]="nombre">
+<p>{{nombre}}</p>

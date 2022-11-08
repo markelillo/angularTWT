@@ -1,27 +1,36 @@
-
-<div [ngClass]="estadoListadoPedido"><!--[ngClass] lo del despues del= es el nombre de un aributo y le dices que nobre va a ener la clase uqe coje el valos de estadoListadoPedido-->
-<h2>Lista de pedidos</h2>
-<div *ngIf="pedidos.length == 0">no hay pedidos</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let pedido of pedidos">
-    <tr class="{{pedido.entregado ? 'table-success': 'table-danger'}}">
-      
-        <th scope="row" >{{ pedido.id }}</th>
+<div [ngClass]="estadoListadoPedido">
+  <!--[ngClass] lo del despues del= es el nombre de un aributo y le dices que nobre va a ener la clase uqe coje el valos de estadoListadoPedido-->
+  <h2>Lista de pedidos</h2>
+  <div *ngIf="pedidos.length == 0">no hay pedidos</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let pedido of pedidos">
+      <tr  class="{{ pedido.entregado ? 'table-success' : 'table-danger' }}">
+      <!--  <th scope="row">{{ pedido.id }}</th>
         <td>{{ pedido.user }}</td>
         <td>{{ pedido.desc }}</td>
-        <td>{{ pedido.fechaPedido | date:'short':'UTC':'es' }}</td>
-        <td >{{ pedido.entregado }}</td>
-    </tr>
-  </tbody>
-</table>
-<button class="btn btn-primary" (click)="onAltaPedido()">Alta Pedido</button>
+        <td>{{ pedido.fechaPedido | date: "short":"UTC":"es" }}</td>
+        <td>{{ pedido.entregado }}</td>
+       -->
+       <a [routerLink]="['/pedido', pedido.id]">
+       <app-item-pedido (entregaRealizada)="onTerminoEntrega($event)" [id]="pedido.id" descripcion = "{{pedido.desc}}" [entregado]="pedido.entregado"></app-item-pedido>
+     </a>
+       </tr>
+    </tbody>
+  </table>
+  <button
+    class="btn btn-primary"
+    [disabled]="!modoNuevo"
+    (click)="onAltaPedido()"
+  >
+    Alta Pedido
+  </button>
 </div>

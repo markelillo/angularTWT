@@ -9,6 +9,9 @@ import { PedidoComponent } from './lista-pedidos/pedido/pedido.component';
 import { EditarPedidoComponent } from './lista-pedidos/editar-pedido/editar-pedido.component';
 import  localeEs from "@angular/common/locales/es"
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ItemPedidoComponent } from './lista-pedidos/item-pedido/item-pedido.component';
+import { TimerComponent } from './timer/timer.component';
 
 
 @NgModule({
@@ -17,11 +20,14 @@ import { registerLocaleData } from '@angular/common';
     CabeceraComponent,
     ListaPedidosComponent,
     PedidoComponent,
-    EditarPedidoComponent
+    EditarPedidoComponent,
+    ItemPedidoComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
