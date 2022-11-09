@@ -15,6 +15,7 @@ export class ListaPedidosComponent implements OnInit {
   estadoListadoPedido: String = 'Entregado';
   modoNuevo: boolean = true;
   //una instancia del service y tambien lo declaro como como atributo
+
   constructor(private log: LogService, private pedsServ:PedidoService, private router:Router) {
     this.pedidos = this.pedsServ.getAll();
      /*[
@@ -59,5 +60,9 @@ export class ListaPedidosComponent implements OnInit {
   public onTerminoEntrega(id: number) {
     console.log('me notifican que ha cambiado pedido' + id);
     this.pedidos= this.pedsServ.getAll();//resetea la lista
+
+   
+
+
   }
 }
