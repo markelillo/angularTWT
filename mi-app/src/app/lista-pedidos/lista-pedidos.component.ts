@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { Pedido } from '../model/pedido';
 import { LogService } from '../servicios/log.service';
 import { PedidoService } from '../servicios/pedido.service';
+import { PedidosHttpService } from '../servicios/pedidos-http.service';
 
 @Component({
   selector: 'app-lista-pedidos',
   templateUrl: './lista-pedidos.component.html',
   styleUrls: ['./lista-pedidos.component.css'],
-  providers:[LogService]
+  providers: [LogService],
 })
 export class ListaPedidosComponent implements OnInit {
   pedidos: Pedido[] = [];
@@ -16,9 +17,16 @@ export class ListaPedidosComponent implements OnInit {
   modoNuevo: boolean = true;
   //una instancia del service y tambien lo declaro como como atributo
 
-  constructor(private log: LogService, private pedsServ:PedidoService, private router:Router) {
-    this.pedidos = this.pedsServ.getAll();
-     /*[
+  constructor(
+    private log: LogService,
+    private pedsServ: PedidoService,
+    private router: Router,
+    private pedidosService : PedidosHttpService
+  ) {
+    pedidosService.getAll().subscribe(
+      (lista:Pedido[])=>this.pedidos=lista
+    )
+    /*[
       {
         id: 1,
         user: 'luis',
@@ -51,7 +59,6 @@ export class ListaPedidosComponent implements OnInit {
 
     this.log.info('pepe');
     this.router.navigate(['/pedido/edit']);
-    
   }
 
   /**
@@ -59,10 +66,10 @@ export class ListaPedidosComponent implements OnInit {
    */
   public onTerminoEntrega(id: number) {
     console.log('me notifican que ha cambiado pedido' + id);
-    this.pedidos= this.pedsServ.getAll();//resetea la lista
+   // this.pedidos = this.pedsServ.getAll(); //resetea la lista
 
-   
-
-
+   this.pedidosService.getAll().subscribe(
+    (lista:Pedido[])=>this.pedidos=lista
+  );
   }
 }

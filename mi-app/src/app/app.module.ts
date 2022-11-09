@@ -12,6 +12,7 @@ import { registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemPedidoComponent } from './lista-pedidos/item-pedido/item-pedido.component';
 import { TimerComponent } from './timer/timer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TimerComponent } from './timer/timer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

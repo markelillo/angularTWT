@@ -13,17 +13,22 @@
       </tr>
     </thead>
     <tbody *ngFor="let pedido of pedidos">
-      <tr  class="{{ pedido.entregado ? 'table-success' : 'table-danger' }}">
-      <!--  <th scope="row">{{ pedido.id }}</th>
+      <tr class="{{ pedido.entregado ? 'table-success' : 'table-danger' }}">
+        <!--  <th scope="row">{{ pedido.id }}</th>
         <td>{{ pedido.user }}</td>
         <td>{{ pedido.desc }}</td>
         <td>{{ pedido.fechaPedido | date: "short":"UTC":"es" }}</td>
         <td>{{ pedido.entregado }}</td>
        -->
-       <a [routerLink]="['/pedido', pedido.id]">
-       <app-item-pedido (entregaRealizada)="onTerminoEntrega($event)" [id]="pedido.id" descripcion = "{{pedido.desc}}" [entregado]="pedido.entregado"></app-item-pedido>
-     </a>
-       </tr>
+        <a> <!-- [routerLink]="['/pedido', pedido.id]"-->
+          <app-item-pedido
+            (entregaRealizada)="onTerminoEntrega($event)"
+            [id]="pedido.id"
+            descripcion="{{ pedido.desc }}"
+            [entregado]="pedido.entregado"
+          ></app-item-pedido>
+        </a>
+      </tr>
     </tbody>
   </table>
   <button
@@ -34,8 +39,3 @@
     Alta Pedido
   </button>
 </div>
-
-
-
-
-
