@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      //////////////////api.jquery.com
+      // $(document).ready();  no hagas nada asta que el documeto este cargado
+      //  $(document).ready();
+      //version mas nueva de $(document).ready();
+      $(function () {
+        //cojo todas las p en vez de getelementiby...
+        $("p");
+        $(".segundo")//po id y # class
+        $("button").click(function () {
+          $("p").fadeToggle("slow", () => {
+            if ($("button").text()=="Cara Calabaza") {
+                $("button").text("cara garbanso")
+            } else {
+                $("button").text("Cara Calabaza")
+            }
+          });
+
+          ///////////////////////////////////////////////////
+
+
+          $("#btn1").click(()=>{
+            console.log($("#text").text());
+          })
+          $("#btn1").click(()=>{
+            console.log($("#text").html());
+          })
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p class="impar">
+      1Lorem ipsum dolor, sit amet consectetur adipisicing elit. At porro illo
+      exercitationem repellat? Velit voluptatum illum quos id! Rerum cupiditate
+      illum, inventore est aliquam vitae. Provident labore quae quidem minima.
+    </p>
+    <p id="segundo">
+      2Lorem ipsum dolor, sit amet consectetur adipisicing elit. At porro illo
+      exercitationem repellat? Velit voluptatum illum quos id! Rerum cupiditate
+      illum, inventore est aliquam vitae. Provident labore quae quidem minima.
+    </p>
+    <p class="impar">
+      3Lorem ipsum dolor, sit amet consectetur adipisicing elit. At porro illo
+      exercitationem repellat? Velit voluptatum illum quos id! Rerum cupiditate
+      illum, inventore est aliquam vitae. Provident labore quae quidem minima.
+    </p>
+    <button>Cara Calabaza</button>
+    <p>//////////////////////////////////////////////////////////////////////////////////////////////</p>
+    <p id="texto">pepepepepeppeeppepepepepepepepeppepepepep</p>
+    <button id="btn1">morstar Texto</button>
+    <button id="btn2">Mostrar HTML</button>
+  </body>
+</html>
